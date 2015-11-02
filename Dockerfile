@@ -21,5 +21,8 @@ RUN make -C /
 
 RUN yum remove -y kernel-devel make kernel-headers kernel-modules gcc && yum clean all
 
+LABEL INSTALL="docker run --rm --privileged -e IMAGE=IMAGE -e NAME=NAME -v /:/host IMAGE /install.sh"
+LABEL UNINSTALL="docker run --rm --privileged -e IMAGE=IMAGE -e NAME=NAME -v /:/host IMAGE /uninstall.sh"
+
 CMD ["/install.sh"]
 
